@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;My Reading Pledge Tracker&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 9999px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar-fill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.book-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.book-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-8px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-link.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 3px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Stylish fallback for missing covers */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.image-fallback {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a1a1a 0%, #374151 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -0.025em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="min-h-screen"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="border-b border-gray-100 py-6 px-6 md:px-20 flex justify-between items-center bg-white sticky top-0 z-50 shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-2xl font-black tracking-tighter uppercase italic"&gt;Pledge.&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative hidden lg:block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" placeholder="Search my library..." class="bg-gray-100 border-none rounded-full py-2.5 px-12 text-sm focus:ring-2 focus:ring-black w-80"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg class="w-5 h-5 absolute left-4 top-2.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="text-gray-500 hover:text-black font-semibold text-sm uppercase tracking-widest"&gt;Explore&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="text-gray-500 hover:text-black font-semibold text-sm uppercase tracking-widest"&gt;Community&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shadow-md"&gt;JD&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Enhanced Profile Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="max-w-6xl mx-auto px-6 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col md:flex-row gap-12 items-center md:items-start mb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Larger Profile Image Container --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-48 h-48 md:w-64 md:h-64 rounded-3xl border-4 border-black p-1.5 bg-white overflow-hidden shadow-2xl transition-transform group-hover:scale-[1.02]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>id="profile-img"</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>src="https://images.unsplash.com/photo-1544391496-1ca7c97e5b77?q=80&amp;w=800&amp;auto=format&amp;fit=crop"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>alt="Profile"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>class="w-full h-full object-cover rounded-2xl"</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="absolute -bottom-4 -right-4 bg-yellow-400 border-4 border-white p-3 rounded-2xl shadow-lg transform rotate-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-2xl"&gt;📚&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex-1 text-center md:text-left pt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col md:flex-row items-center gap-6 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-4xl md:text-5xl font-black tracking-tight"&gt;The 2024 Reading Pledge&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="bg-black text-white px-6 py-2.5 rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-all shadow-lg active:scale-95"&gt;Edit Goal&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-500 mb-8 max-w-2xl text-xl leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Mastering the art of strategy, management, and generalism. One book at a time, building a foundation for the next decade.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-center md:justify-start gap-12 border-t border-gray-100 pt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-4xl font-black" id="total-books"&gt;6&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-xs text-gray-400 uppercase font-bold tracking-widest mt-1"&gt;Pledged&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-4xl font-black" id="completed-count"&gt;0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-xs text-gray-400 uppercase font-bold tracking-widest mt-1"&gt;Finished&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-4xl font-black text-blue-600" id="total-progress"&gt;0%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-xs text-gray-400 uppercase font-bold tracking-widest mt-1"&gt;Total Power&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Navigation Tabs --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="flex justify-center md:justify-start gap-12 border-b border-gray-100 mb-12 overflow-x-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="nav-link active pb-6 text-xs font-black uppercase tracking-[0.2em]"&gt;Current List&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="nav-link pb-6 text-xs font-black text-gray-300 uppercase tracking-[0.2em] hover:text-gray-600 transition"&gt;Detailed Stats&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="nav-link pb-6 text-xs font-black text-gray-300 uppercase tracking-[0.2em] hover:text-gray-600 transition"&gt;Archive&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Book Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="book-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Dynamically populated --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mt-24 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="bg-gray-50 text-black border-2 border-black px-12 py-4 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-black hover:text-white transition-all transform active:scale-95"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Load Full History</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="py-20 border-t border-gray-100 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-2xl font-black tracking-tighter uppercase italic mb-4"&gt;Pledge.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-gray-400 text-sm tracking-widest font-medium uppercase"&gt;Keep Reading. Keep Growing.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* BOOK DATA CONFIGURATION</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const readingData = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Good Strategy/Bad Strategy",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "Richard Rumelt",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://books.google.com/books/about/Good_Strategy_Bad_Strategy.html?id=nTU65JgxgOAC",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9781846684814-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Completed",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 100</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "The Making of a Manager",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "Julie Zhuo",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://books.google.com/books/about/The_Making_of_a_Manager.html?id=malkEQAAQBAJ",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9780735219564-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Reading",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 65</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Thinking in Bets",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "Annie Duke",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://www.goodreads.com/book/show/27267604-thinking-in-bets",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9780735216358-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Reading",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 20</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Range",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "David Epstein",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://www.goodreads.com/book/show/35099718-range",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9780735214484-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Pledged",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 0</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "The Art of Learning",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "Josh Waitzkin",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://www.goodreads.com/book/show/159670.The_Art_of_Learning",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9780743277457-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Pledged",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 0</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Braiding Sweetgrass",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>author: "Robin Wall Kimmerer",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link: "https://en.wikipedia.org/wiki/Braiding_Sweetgrass",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cover: "https://covers.openlibrary.org/b/isbn/9781571313560-L.jpg",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>status: "Pledged",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>progress: 0</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* IMAGE ERROR HANDLER</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Creates a custom book-style fallback if the cover image is missing.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function handleImageError(img, title) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const fallback = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>fallback.className = 'image-fallback';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>fallback.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-4 text-3xl opacity-50 text-white"&gt;📖&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="uppercase tracking-tighter leading-tight"&gt;${title}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-4 w-8 h-1 bg-white opacity-30"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.parentNode.appendChild(fallback);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function renderBooks() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const grid = document.getElementById('book-grid');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalCount = readingData.length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let completedCount = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let sumProgress = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid.innerHTML = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>readingData.forEach((book) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (book.status === 'Completed') completedCount++;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sumProgress += book.progress;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.className = 'book-card group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col h-full shadow-sm hover:shadow-2xl';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let progressColor = 'bg-blue-600';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (book.status === 'Completed') progressColor = 'bg-emerald-500';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (book.status === 'Pledged') progressColor = 'bg-gray-200';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative aspect-[2/3] overflow-hidden bg-gray-50 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>src="${book.cover}"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>alt="${book.title}"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>class="w-full h-full object-cover group-hover:scale-110 transition duration-700"</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>onerror="handleImageError(this, '${book.title.replace(/'/g, "\\'")}')"</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-5 right-5 z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="px-4 py-1.5 bg-black text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-lg shadow-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>${book.status}</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 flex flex-col flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-black text-xl mb-2 leading-tight group-hover:text-blue-600 transition-colors"&gt;${book.title}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-400 font-medium text-sm mb-8"&gt;${book.author}&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mt-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex justify-between items-end mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-[10px] font-black text-gray-300 uppercase tracking-widest"&gt;Mastery&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm font-black"&gt;${book.progress}%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-bar-fill ${progressColor}" style="width: ${book.progress}%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="${book.link}" target="_blank" class="mt-8 text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 text-gray-300 hover:text-black transition-all"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>View Details<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('total-books').textContent = totalCount;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('completed-count').textContent = completedCount;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('total-progress').textContent = Math.round(sumProgress / totalCount) + '%';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', renderBooks);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
